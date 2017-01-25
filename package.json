@@ -1,0 +1,30 @@
+{
+  "name": "parse-location",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/aribouius/parse-location",
+  "author": "Ari Bouius <aribouius@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "location"
+  ],
+  "scripts": {
+    "test": "mocha --recursive",
+    "test:watch": "yarn run test -- --watch",
+    "lint": "eslint lib",
+    "lint:fix": "yarn run lint -- --fix",
+    "preversion": "yarn run lint && yarn run test",
+    "version": "git add -A lib",
+    "postversion": "git push --follow-tags"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "query-string": "^4.2.3"
+  }
+}

@@ -1,0 +1,2 @@
+--timeout 5000
+lib/**/__tests__/**/*-test.js
