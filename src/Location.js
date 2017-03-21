@@ -1,8 +1,8 @@
-const { parse, stringify } = require('query-string')
+import { parse, stringify } from 'query-string'
 
 const regex = /^(?:(https?:)\/\/)?([^:/]*)(?::([^/]*))?([^?]*)(\?[^#]+)?(#.+)?/
 
-function Location(loc) {
+export default function Location(loc) {
   let port
   let hash
   let query
@@ -14,7 +14,7 @@ function Location(loc) {
   if (typeof loc === 'string') {
     [protocol, hostname, port, pathname, search, hash] = loc.match(regex).slice(1)
   } else {
-    ({ protocol, hostname, protocol, pathname, search, query, hash } = loc)
+    ({ protocol, hostname, protocol, pathname, search, query, hash, port } = loc)
   }
 
   port = port || ''
@@ -44,5 +44,3 @@ function Location(loc) {
     ].filter(v => v).join(''),
   })
 }
-
-module.exports = Location

@@ -1,5 +1,5 @@
-const expect = require('chai').expect
-const Location = require('../Location')
+import { expect } from 'chai'
+import Location from '../Location'
 
 describe('Location', () => {
   const url1 = '/foo?bar=bar#baz'
