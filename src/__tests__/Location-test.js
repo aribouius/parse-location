@@ -10,6 +10,11 @@ describe('Location', () => {
     expect(loc.search).to.eql('?foo=foo')
   })
 
+  it('ignores empty query objects when building query string', () => {
+    const loc = new Location({ query: {} })
+    expect(loc.search).to.eql('')
+  })
+
   it('parses a query object when given a query string', () => {
     const loc = new Location({ search: '?foo=foo' })
     expect(loc.query).to.eql({ foo: 'foo' })

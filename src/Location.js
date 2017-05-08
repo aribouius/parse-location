@@ -22,7 +22,7 @@ export default function Location(loc) {
   protocol = protocol || ''
   hostname = hostname || ''
   pathname = pathname || ''
-  search = search || (query ? `?${stringify(query)}` : '')
+  search = search || (query && Object.keys(query).length ? `?${stringify(query)}` : '')
   query = query || (search ? parse(search) : {})
 
   Object.assign(this, {
