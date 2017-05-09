@@ -14,14 +14,14 @@ export default function Location(loc) {
   if (typeof loc === 'string') {
     [protocol, hostname, port, pathname, search, hash] = loc.match(regex).slice(1)
   } else {
-    ({ protocol, hostname, protocol, pathname, search, query, hash, port } = loc)
+    ({ protocol, hostname, protocol, pathname, search, query, hash, port } = loc || {})
   }
 
   port = port || ''
   hash = hash || ''
   protocol = protocol || ''
   hostname = hostname || ''
-  pathname = pathname || ''
+  pathname = pathname || '/'
   search = search || (query && Object.keys(query).length ? `?${stringify(query)}` : '')
   query = query || (search ? parse(search) : {})
 

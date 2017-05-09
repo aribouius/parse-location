@@ -29,6 +29,13 @@ describe('Location', () => {
     expect(new Location('/foo/').pathname).to.equal('/foo/')
   })
 
+  it('handles empty input', () => {
+    expect(new Location('').pathname).to.equal('/')
+    expect(new Location(null).pathname).to.equal('/')
+    expect(new Location(undefined).pathname).to.equal('/')
+    expect(new Location({}).pathname).to.equal('/')
+  })
+
   describe(url1, () => {
     it('parses a href', () => {
       const loc = new Location(url1)
