@@ -1,4 +1,4 @@
-import { parse, stringify } from 'query-string'
+import qs from 'querystringify'
 
 const regex = /^(?:(https?:)\/\/)?([^:/]*)(?::([^/]*))?([^?]*)(\?[^#]+)?(#.+)?/
 
@@ -22,8 +22,8 @@ export default function Location(loc) {
   protocol = protocol || ''
   hostname = hostname || ''
   pathname = pathname || '/'
-  search = search || (query && Object.keys(query).length ? `?${stringify(query)}` : '')
-  query = query || (search ? parse(search) : {})
+  search = search || (query && Object.keys(query).length ? qs.stringify(query, true) : '')
+  query = query || (search ? qs.parse(search) : {})
 
   Object.assign(this, {
     host: port ? `${hostname}:${port}` : hostname,
