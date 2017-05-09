@@ -1,6 +1,6 @@
 {
   "name": "parse-location",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "repository": "https://github.com/aribouius/parse-location",
   "author": "Ari Bouius <aribouius@gmail.com>",
