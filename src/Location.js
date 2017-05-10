@@ -1,6 +1,6 @@
 import qs from 'querystringify'
 
-const regex = /^(?:(https?:)\/\/)?([^:/]*)(?::([^/]*))?([^?]*)(\?[^#]+)?(#.+)?/
+const regex = /^(?:(https?:)\/\/)?([^:/]*)(?::([^/]*))?([^?#]*)(\?[^#]+)?(#.+)?/
 
 export default function Location(loc) {
   let port

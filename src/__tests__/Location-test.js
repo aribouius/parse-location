@@ -4,6 +4,7 @@ import Location from '../Location'
 describe('Location', () => {
   const url1 = '/foo?bar=bar#baz'
   const url2 = 'http://test.com:3000/foo?bar=bar#baz'
+  const url3 = '/bar#baz'
 
   it('parses a query string when given a query object', () => {
     const loc = new Location({ query: { foo: 'foo' } })
@@ -106,6 +107,18 @@ describe('Location', () => {
 
     it('parses a hash', () => {
       const loc = new Location(url2)
+      expect(loc.hash).to.equal('#baz')
+    })
+  })
+
+  describe(url3, () => {
+    it('parses a pathname', () => {
+      const loc = new Location(url3)
+      expect(loc.pathname).to.equal('/bar')
+    })
+
+    it('parses a hash', () => {
+      const loc = new Location(url3)
       expect(loc.hash).to.equal('#baz')
     })
   })
